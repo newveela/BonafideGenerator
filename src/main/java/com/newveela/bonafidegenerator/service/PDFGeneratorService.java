@@ -64,14 +64,14 @@ public class PDFGeneratorService {
         // Add Body Text for the specific student
         String certText = String.format(
                 "BONAFIDE CERTIFICATE\n\n" +
-                        "This is to certify that \033[1m%s\033[0m, bearing Roll Number \033[1m%s\033[0m, is a bonafide student " +
+                        "This is to certify that %s, bearing Roll Number %s, is a bonafide student " +
                         "of %s. He/She is currently enrolled in the %s program under the %s department in %d year " +
                         "for the academic session %d - %d.\n\n" +
                         "This certificate is issued upon request for official purposes.\n\n" +
                         "Place: Gandipet\n" +
                         "Issued Date: %s\n\n" +
                         "This is a system-generated document and does not require a signature.\n\n" +
-                        "%s\n(Official Seal/Stamp)",
+                        "%s",
                 student.getStudentName(),
                 student.getStudentId(),
                 student.getInstitutionName(),
