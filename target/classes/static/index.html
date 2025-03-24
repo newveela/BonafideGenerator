@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonafide Certificate Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo at the top -->
+    <div class="logo-container">
+        <img src="cbit.png" alt="Logo" id="logo">
+    </div>
+    <div class="nav-links">
+        <ul>
+            <li><a href="createStudent.html">Create Student</a></li>
+            <li><a href="allstudents.html">View All Students</a></li>
+        </ul>
+    </div>
+
+    <h1>Bonafide Certificate Generator</h1>
+
+    <!-- Student ID Form -->
+    <div class="form-group">
+        <label for="studentId">Enter Student ID:</label>
+        <input type="text" id="studentId" placeholder="Enter Student ID" />
+    </div>
+
+    <button id="generateBtn" onclick="generatePdf()">Generate Certificate</button>
+
+    <p id="errorMessage" class="error" style="display: none;">Student not found! Please try again.</p>
+
+
+    <p id="loadingMessage" style="display: none;">Generating PDF...</p>
+
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>

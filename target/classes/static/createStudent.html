@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Student</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo at the top -->
+    <div class="logo-container">
+        <img src="cbit.png" alt="Logo" id="logo">
+    </div>
+
+    <h1>Create Student</h1>
+
+    <!-- Form to create a new student -->
+    <div class="form-group">
+        <label for="sName">Student Name:</label>
+        <input type="text" id="sName" placeholder="Enter Student Name" />
+    </div>
+    <div class="form-group">
+        <label for="department">Department:</label>
+        <input type="text" id="department" placeholder="Enter Department (CS, IT, ME, EC)" />
+    </div>
+    <div class="form-group">
+        <label for="courseName">Course Name:</label>
+        <input type="text" id="courseName" placeholder="Enter Course Name" />
+    </div>
+
+    <button id="createStudentBtn">Create Student</button>
+
+    <p id="createStudentMessage" style="display: none;"></p>
+    <p><a href="allstudents.html">View All Students</a></p>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
