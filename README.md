@@ -1,5 +1,5 @@
 ### **Bonafide Certificate Generator**
-
+ [View Live Bonafide Generator](https://bonafidegenerator.up.railway.app/)
 ---
 
 ### Overview
