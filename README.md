@@ -1,7 +1,4 @@
-## Project Documentation: Bonafide Certificate Generator
-
-### Project Title
-**Bonafide Certificate Generator**
+### **Bonafide Certificate Generator**
 
 ---
 
