@@ -140,6 +140,10 @@ http://localhost:8080/index.html
 
 ![Bonafide PDF](images/BonafidePdf.png)
 
+##  Sample Database Login:
+
+![Database](images/H2Db.png)
+
 ---
 
 ###  Confirmation Popup Example:
