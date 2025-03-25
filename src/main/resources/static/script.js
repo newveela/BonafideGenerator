@@ -15,7 +15,7 @@ function createStudent() {
         courseName: courseName
     };
 
-    const url = 'http://localhost:8080/students/create';
+    const url = 'https://bonafidegenerator.up.railway.app/students/create';
 
     fetch(url, {
         method: 'POST',
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Function to fetch and display all students
 function getAllStudents() {
-    const url = 'http://localhost:8080/students/all';
+    const url = 'https://bonafidegenerator.up.railway.app/students/all';
 
     fetch(url)
         .then(response => response.json())
@@ -93,7 +93,7 @@ function createPdf(studentId) {
     document.getElementById('loadingMessage').style.display = 'block';
     document.getElementById('errorMessage').style.display = 'none';
 
-    const url = `http://localhost:8080/students/pdf/${studentId}`;
+    const url = `https://bonafidegenerator.up.railway.app/students/pdf/${studentId}`;
 
     fetch(url, { method: 'GET' })
         .then(response => {
@@ -133,7 +133,7 @@ function generatePdf() {
     document.getElementById('loadingMessage').style.display = 'block';
     document.getElementById('errorMessage').style.display = 'none';
 
-    const url = `http://localhost:8080/students/pdf/${studentId}`;
+    const url = `https://bonafidegenerator.up.railway.app/students/pdf/${studentId}`;
 
     fetch(url, { method: 'GET' })
         .then(response => {
