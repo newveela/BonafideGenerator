@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/pdf")
+@RequestMapping("students")
 public class PDFController {
 
     private final PDFGeneratorService pdfGeneratorService;
@@ -19,7 +19,7 @@ public class PDFController {
     }
 
     // Endpoint to generate PDF for a specific student by their student ID
-    @GetMapping("/generate/{studentId}")
+    @GetMapping("pdf/{studentId}")
     public ResponseEntity<byte[]> generatePdf(@PathVariable String studentId) {
         try {
             byte[] pdfBytes = pdfGeneratorService.generatePdfForStudent(studentId);

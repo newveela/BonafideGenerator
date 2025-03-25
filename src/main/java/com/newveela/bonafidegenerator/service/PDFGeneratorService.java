@@ -1,8 +1,7 @@
 package com.newveela.bonafidegenerator.service;
 
 import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.*;
 import com.newveela.bonafidegenerator.model.Student;
 import com.newveela.bonafidegenerator.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +17,13 @@ public class PDFGeneratorService {
     @Autowired
     private StudentRepository studentRepository;
 
-    // Method to get the student's name by ID
     public String getStudentNameById(String studentId) {
-        Optional<Student> studentOpt = studentRepository.findById(studentId);
-        if (studentOpt.isPresent()) {
-            return studentOpt.get().getStudentId();
-        }
-        return "Unknown_Student"; // Default name if not found
+        Optional<Student> studentOpt = studentRepository.findByStudentId(studentId);
+        return studentOpt.map(Student::getStudentId).orElse("Unknown_Student");
     }
 
-    // Method to generate PDF for a specific student based on student ID
     public byte[] generatePdfForStudent(String studentId) throws DocumentException, IOException {
-        // Fetch the student by their ID
-        Optional<Student> studentOpt = studentRepository.findById(studentId);
-
+        Optional<Student> studentOpt = studentRepository.findByStudentId(studentId);
         if (!studentOpt.isPresent()) {
             return null;
         }
@@ -40,56 +32,53 @@ public class PDFGeneratorService {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         Document document = new Document(PageSize.A4);
         PdfWriter writer = PdfWriter.getInstance(document, baos);
-
         document.open();
 
-        // Set up the fonts for the certificate
         Font titleFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD, BaseColor.BLACK);
         Font contentFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLACK);
 
-        // Add the logo from the static folder
-        String logoPath = "src/main/resources/static/cbit.png"; // Update the path if necessary
+        String logoPath = "src/main/resources/static/cbit.png";
         Image logo = Image.getInstance(logoPath);
-        logo.scaleToFit(320, 180);
+        logo.scaleToFit(500, 100);
         logo.setAlignment(Paragraph.ALIGN_CENTER);
         logo.setSpacingAfter(20);
         document.add(logo);
 
-        // Add Title
-        Paragraph title = new Paragraph("BONAFIDE CERTIFICATE", titleFont);
+        Paragraph title = new Paragraph("BONAFIDE AND CONDUCT CERTIFICATE", titleFont);
         title.setAlignment(Paragraph.ALIGN_CENTER);
         title.setSpacingAfter(20);
         document.add(title);
 
-        // Add Body Text for the specific student
         String certText = String.format(
-                "BONAFIDE CERTIFICATE\n\n" +
-                        "This is to certify that %s, bearing Roll Number %s, is a bonafide student " +
-                        "of %s. He/She is currently enrolled in the %s program under the %s department in %d year " +
-                        "for the academic session %d - %d.\n\n" +
+                "This is to certify that %s, bearing Roll Number %s, is a bonafide student " +
+                        "of %s. He/She is currently enrolled in the %s program under the %s department for " +
+                        "the academic year %d-%d.\n\n" +
                         "This certificate is issued upon request for official purposes.\n\n" +
                         "Place: Gandipet\n" +
                         "Issued Date: %s\n\n" +
-                        "This is a system-generated document and does not require a signature.\n\n" +
-                        "%s",
-                student.getStudentName(),
-                student.getStudentId(),
+                        "%s\n\n\nThis is a system-generated document and does not require a signature.",
+                student.getStudentName().toUpperCase(),
+                student.getStudentId().toUpperCase(),
                 student.getInstitutionName(),
-                student.getCourseName(),
-                student.getDepartment(),
-                student.getCurrentYear(),
+                student.getCourseName().toUpperCase(),
+                student.getDepartment().toUpperCase(),
                 student.getCurrentYear(),
                 student.getCurrentYear() + 1,
                 student.getIssueDate().toString(),
                 student.getInstitutionName()
         );
 
-
-
         Paragraph content = new Paragraph(certText, contentFont);
         content.setAlignment(Paragraph.ALIGN_LEFT);
         content.setSpacingAfter(30);
         document.add(content);
+
+
+        ColumnText.showTextAligned(writer.getDirectContent(), Element.ALIGN_CENTER,
+                new Phrase("CBIT, \t" +
+                        "Gandipet, Hyderabad, Telangana, India - 500075, \t" +
+                        "www.cbit.ac.in", contentFont),
+                document.getPageSize().getWidth() / 2, document.bottomMargin() - 10, 0);
 
         document.close();
         return baos.toByteArray();

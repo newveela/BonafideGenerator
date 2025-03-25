@@ -25,4 +25,12 @@ public class StudentService {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+    public void saveAllStudents(List<Student> students) {
+        studentRepository.saveAll(students);
+    }
+
+    public Optional<Student> findByStudentId(String studentId) {
+        return studentRepository.findByStudentId(studentId);
+    }
+
 }

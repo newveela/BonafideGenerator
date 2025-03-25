@@ -53,7 +53,7 @@ public class Student {
         }
 
 
-        String randomDigits = String.format("%02d", (int)(Math.random() * 10000));
+        String randomDigits = String.format("%2d", (int)(Math.random() * 1000));
         return deptPrefix + randomDigits;
     }
 

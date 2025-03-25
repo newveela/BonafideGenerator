@@ -1,0 +1,8 @@
+com/newveela/bonafidegenerator/service/StudentService.class
+com/newveela/bonafidegenerator/model/ResponseMessage.class
+com/newveela/bonafidegenerator/repository/StudentRepository.class
+com/newveela/bonafidegenerator/service/PDFGeneratorService.class
+com/newveela/bonafidegenerator/BonafideGeneratorApplication.class
+com/newveela/bonafidegenerator/controller/StudentController.class
+com/newveela/bonafidegenerator/model/Student.class
+com/newveela/bonafidegenerator/controller/PDFController.class

@@ -13,7 +13,10 @@
   <div class="logo-container">
     <img src="cbit.png" alt="Logo" id="logo">
   </div>
-
+  <nav class="navbar">
+    <p><a href="index.html">Homepage</a> </p>
+    <p><a href="createStudent.html">Create New Student</a></p>
+  </nav>
   <h1>All Students</h1>
 
   <table id="studentsTable" border="1">
@@ -27,12 +30,13 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Student data will be populated here -->
     </tbody>
   </table>
 
-  <p><a href="createStudent.html">Create New Student</a></p>
 </div>
+
+<div id="loadingMessage" style="display: none;">Generating PDF...</div>
+<div id="errorMessage" style="display: none; color: red;"></div>
 
 <script src="script.js"></script>
 
