@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://bonafidegenerator.up.railway.app")
 @RequestMapping("/students")
 public class StudentController {
 
