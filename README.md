@@ -22,6 +22,7 @@ The app is affiliated with **Chaitanya Bharathi Institute of Technology** and re
 | Frontend    | HTML, CSS, JavaScript         |
 | PDF Gen     | iText (in `PDFGeneratorService`) |
 | Build Tool  | Maven                         |
+| Database  |H2 (In-memory for development) |                  |
 | Server      | Embedded Tomcat (via Spring Boot) |
 
 ---
