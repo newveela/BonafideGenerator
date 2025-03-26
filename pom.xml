@@ -93,6 +93,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>bonafidegenerator</finalName>
     </build>
 
 </project>
