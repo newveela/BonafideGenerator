@@ -19,7 +19,7 @@ public class PDFGeneratorService {
 
     public String getStudentNameById(String studentId) {
         Optional<Student> studentOpt = studentRepository.findByStudentId(studentId);
-        return studentOpt.map(Student::getStudentId).orElse("Unknown_Student");
+        return studentOpt.map(Student::getStudentName).orElse("Unknown_Student");
     }
 
     public byte[] generatePdfForStudent(String studentId) throws DocumentException, IOException {
@@ -27,7 +27,6 @@ public class PDFGeneratorService {
         if (!studentOpt.isPresent()) {
             return null;
         }
-
         Student student = studentOpt.get();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         Document document = new Document(PageSize.A4);
@@ -37,6 +36,7 @@ public class PDFGeneratorService {
         Font titleFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD, BaseColor.BLACK);
         Font contentFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLACK);
 
+        // Adjust your image path to wherever cbit.png is located
         String logoPath = "src/main/resources/static/cbit.png";
         Image logo = Image.getInstance(logoPath);
         logo.scaleToFit(500, 100);
@@ -73,12 +73,12 @@ public class PDFGeneratorService {
         content.setSpacingAfter(30);
         document.add(content);
 
-
-        ColumnText.showTextAligned(writer.getDirectContent(), Element.ALIGN_CENTER,
-                new Phrase("CBIT, \t" +
-                        "Gandipet, Hyderabad, Telangana, India - 500075, \t" +
-                        "www.cbit.ac.in", contentFont),
-                document.getPageSize().getWidth() / 2, document.bottomMargin() - 10, 0);
+        ColumnText.showTextAligned(writer.getDirectContent(),
+                Element.ALIGN_CENTER,
+                new Phrase("CBIT, Gandipet, Hyderabad, Telangana, India - 500075, www.cbit.ac.in", contentFont),
+                document.getPageSize().getWidth() / 2,
+                document.bottomMargin() - 10,
+                0);
 
         document.close();
         return baos.toByteArray();

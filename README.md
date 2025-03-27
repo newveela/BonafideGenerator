@@ -43,7 +43,6 @@ BonafideGenerator/
 │   │   │   │   ├── index.html
 │   │   │   │   ├── createStudent.html
 │   │   │   │   ├── allstudents.html
-│   │   │   │   ├── script.js
 │   │   │   │   └── style.css
 ├── images/ (Screenshots of UI and workflow)
 ├── pom.xml (Maven configuration)

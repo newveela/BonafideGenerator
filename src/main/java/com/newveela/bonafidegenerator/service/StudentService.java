@@ -15,16 +15,18 @@ public class StudentService {
     private StudentRepository studentRepository;
 
     public Student getStudentById(String studentId) {
-        Optional<Student> student = studentRepository.findByStudentId(studentId);
-        return student.orElse(null);
+        Optional<Student> studentOpt = studentRepository.findByStudentId(studentId);
+        return studentOpt.orElse(null);
     }
 
     public void createStudent(Student student) {
         studentRepository.save(student);
     }
+
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+
     public void saveAllStudents(List<Student> students) {
         studentRepository.saveAll(students);
     }
@@ -32,5 +34,4 @@ public class StudentService {
     public Optional<Student> findByStudentId(String studentId) {
         return studentRepository.findByStudentId(studentId);
     }
-
 }

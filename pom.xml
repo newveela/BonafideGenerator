@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.newveela</groupId>
     <artifactId>BonafideGenerator</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1</version>
     <name>BonafideGenerator</name>
     <description>BonafideGenerator</description>
     <url/>
@@ -38,6 +38,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>itextpdf</artifactId>

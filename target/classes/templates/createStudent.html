@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Create Student</title>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+    <link th:href="@{/logo.png}" rel="icon" type="image/png"/>
+</head>
+<body>
+<div class="container">
+    <div class="logo-container">
+        <img th:src="@{/cbit.png}" alt="Logo" id="logo"/>
+    </div>
+    <nav class="navbar">
+        <p><a th:href="@{/}">Homepage</a></p>
+        <p><a th:href="@{/students/list}">View All Students</a></p>
+    </nav>
+
+    <h1>Create Student</h1>
+
+
+    <form th:action="@{/students}" method="post">
+        <div class="form-group">
+            <label for="sName">Student Name:</label>
+            <input type="text" id="sName" name="studentName" placeholder="Enter Student Name" />
+        </div>
+        <div class="form-group">
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" placeholder="Enter Department (CS, IT, ME, EC)" />
+        </div>
+        <div class="form-group">
+            <label for="courseName">Course Name:</label>
+            <input type="text" id="courseName" name="courseName" placeholder="Enter Course Name" />
+        </div>
+        <button type="submit">Create Student</button>
+    </form>
+
+
+    <p th:if="${message}" th:text="${message}" style="margin-top: 20px;"></p>
+</div>
+</body>
+</html>

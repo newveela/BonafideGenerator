@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bonafide Certificate Generator</title>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+    <link th:href="@{/logo.png}" rel="icon" type="image/png"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-container">
+        <img th:src="@{/cbit.png}" alt="Logo" id="logo"/>
+    </div>
+    <nav class="navbar">
+        <p><a th:href="@{/students/create}">Create Student</a></p>
+        <p><a th:href="@{/students/list}">View All Students</a></p>
+    </nav>
+
+    <h1>Bonafide Certificate Generator</h1>
+
+
+    <form th:action="@{/students/pdf}" method="get">
+        <div class="form-group">
+            <label for="studentId">Enter Student ID:</label>
+            <input type="text" id="studentId" name="studentId" placeholder="Enter Student ID" />
+        </div>
+        <button type="submit">Generate Certificate</button>
+    </form>
+
+    <p th:if="${notFound}" class="error">Student not found! Please try again.</p>
+</div>
+
+</body>
+</html>

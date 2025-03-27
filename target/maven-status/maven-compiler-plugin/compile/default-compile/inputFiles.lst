@@ -1,6 +1,6 @@
-/Users/bug/Github/BonafideGenerator/src/main/java/CorsConfig.java
 /Users/bug/Github/BonafideGenerator/src/main/java/com/newveela/bonafidegenerator/BonafideGeneratorApplication.java
-/Users/bug/Github/BonafideGenerator/src/main/java/com/newveela/bonafidegenerator/controller/PDFController.java
+/Users/bug/Github/BonafideGenerator/src/main/java/com/newveela/bonafidegenerator/CorsConfig.java
+/Users/bug/Github/BonafideGenerator/src/main/java/com/newveela/bonafidegenerator/HomeController.java
 /Users/bug/Github/BonafideGenerator/src/main/java/com/newveela/bonafidegenerator/controller/StudentController.java
 /Users/bug/Github/BonafideGenerator/src/main/java/com/newveela/bonafidegenerator/model/ResponseMessage.java
 /Users/bug/Github/BonafideGenerator/src/main/java/com/newveela/bonafidegenerator/model/Student.java

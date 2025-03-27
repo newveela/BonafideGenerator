@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View All Students</title>
+  <link th:href="@{/style.css}" rel="stylesheet"/>
+  <link th:href="@{/logo.png}" rel="icon" type="image/png"/>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo-container">
+    <img th:src="@{/cbit.png}" alt="Logo" id="logo"/>
+  </div>
+  <nav class="navbar">
+    <p><a th:href="@{/}">Homepage</a></p>
+    <p><a th:href="@{/students/create}">Create New Student</a></p>
+  </nav>
+  <h1>All Students</h1>
+
+  <table id="studentsTable" border="1">
+    <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Course Name</th>
+      <th>Issue Date</th>
+      <th>Certificate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${students}">
+      <td th:text="${student.studentId}"></td>
+      <td th:text="${student.studentName}"></td>
+      <td th:text="${student.department}"></td>
+      <td th:text="${student.courseName}"></td>
+      <td th:text="${student.issueDate}"></td>
+      <td>
+
+        <a th:href="@{/students/pdf(studentId=${student.studentId})}" target="_blank">
+          Download PDF
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
