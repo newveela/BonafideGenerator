@@ -1,6 +1,16 @@
-FROM openjdk:17
+# Use the official OpenJDK 17 image as a base image
+FROM openjdk:17-jdk-slim
+
+
 LABEL authors="sanju"
 
-COPY target/bonafidegenerator.jar /bonafidegenerator.jar
+WORKDIR /app
 
-ENTRYPOINT ["java", "-jar", "/bonafidegenerator.jar"]
+
+COPY target/bonafidegenerator.jar /app/bonafidegenerator.jar
+
+
+EXPOSE 8080
+
+
+ENTRYPOINT ["java", "-jar", "/app/bonafidegenerator.jar"]
